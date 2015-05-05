@@ -1,0 +1,2 @@
+# portefeuille
+Simple stock analyzer.
