@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <script src="js/worker.js"></script> 
 <title>Portefeuille</title>
 </head>
 <body>
-	Welcome to Portefeuille
+	Welcome to Portefeuille 
+	<button onclick="portefeuille.displayAlert()">click me</button>
 </body>
 </html>

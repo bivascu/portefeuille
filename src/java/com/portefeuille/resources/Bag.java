@@ -2,22 +2,21 @@ package com.portefeuille.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.portefeuille.services.HtmlClient;
-import com.portefeuille.services.HtmlClientImpl;
 
+@Path("bag/")
+public interface Bag {
 
-@Path("bag")
-public class Bag {
-
+	@GET
+	@Produces(MediaType.TEXT_PLAIN) // don't like query params except for complex filter. User Pathparam.
+	@Path("{ticker}")
+	public String listHoldings(@PathParam("ticker") String ticker);
+	
 	
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String listHoldings(){
-		HtmlClient client = new HtmlClientImpl();
-		client.getCompanyDetails(null);
-		return "These are my holdings..";
-	}
+	@Produces(MediaType.TEXT_PLAIN) // don't like query params except for complex filter. User Pathparam. 
+	public String listHoldings();
 }

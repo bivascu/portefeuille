@@ -6,6 +6,7 @@
   <packaging>war</packaging>
   <name>Portefeuille</name>
   <description>Simple stock manager</description>
+  
   <build>
     <sourceDirectory>src/java</sourceDirectory>
     <plugins>
@@ -28,6 +29,11 @@
     </plugins>
   </build>
   <dependencies>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.2.3</version>
+	</dependency>
   	<dependency>
   		<groupId>org.glassfish.jersey.containers</groupId>
   		<artifactId>jersey-container-servlet</artifactId>
@@ -44,5 +50,20 @@
   		<artifactId>jsoup</artifactId>
   		<version>1.8.2</version>
   	</dependency>
+	<dependency>
+	    <groupId>org.glassfish.jersey.ext</groupId>
+	    <artifactId>jersey-spring3</artifactId>
+	    <version>2.17</version>
+	</dependency>  
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>3.2.4.RELEASE</version>
+	</dependency>	
+    <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+	</dependency>
   </dependencies>
 </project>

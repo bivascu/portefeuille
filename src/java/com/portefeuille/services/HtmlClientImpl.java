@@ -1,6 +1,7 @@
 package com.portefeuille.services;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,20 +13,29 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.portefeuille.model.Company;
 
 public class HtmlClientImpl implements HtmlClient {
 
 	@Override
-	public Company getCompanyDetails(String ticker) {
+	public String getCompanyDetails(String ticker) {
 		
 		Document doc=null;
 		Company holding = new Company();
+		String rootPath = "http://web.tmxmoney.com/quote.php?qm_symbol=%s";
+		URL url =null;
 		try {
-			doc = getHtmlFromPage(new URL("http://web.tmxmoney.com/quote.php?qm_symbol=RY"));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+			 url = new URL(String.format(rootPath, ticker));
+		} catch (MalformedURLException e1) {
+			System.out.println("Counld not build URL.");
+			e1.printStackTrace();
+			return null;
+		}		
+		
+		doc = getHtmlFromPage(url);
+		
 		holding.setName(doc.select("div.quote-name").text());
 		holding.setTicker(doc.select("div.quote-ticker.tickerLarge").html());
 		holding.setExchange(doc.select("table.detailed-quote-table td acronym").attr("title"));
@@ -50,8 +60,9 @@ public class HtmlClientImpl implements HtmlClient {
 				case "Yield:" : holding.setYield(stringToBigD(elements.get(i+1).text().trim()));break;
 			}
 		}
-		System.out.println(holding.toString());
-		return holding;
+		//System.out.println(holding.toString());
+		
+		return object2Json(holding);
 	}
 	
 	
@@ -77,4 +88,28 @@ public class HtmlClientImpl implements HtmlClient {
 		return localNumber == null?null:new BigDecimal(localNumber.toString());
 	}
 	
+	private String object2Json(Object object){
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+		
+		StringWriter stringObject = new StringWriter();
+		try {
+			mapper.writeValue(stringObject, object);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return stringObject.toString();
+	}
+	
+	
+	public static void main(String[] args) {
+		HtmlClientImpl client = new HtmlClientImpl();
+		Company comp = new Company();
+		comp.setName("My Company");
+		comp.setTicker("Tic");
+		System.out.println(client.object2Json(comp));
+		
+	}
 }

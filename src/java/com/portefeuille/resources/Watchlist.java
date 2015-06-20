@@ -1,6 +1,6 @@
 package com.portefeuille.resources;
 
-public class Watchlist {
+public interface Watchlist {
 	
 	//sensible price
 	//long time moat 
