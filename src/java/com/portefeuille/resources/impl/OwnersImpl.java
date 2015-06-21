@@ -5,16 +5,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.portefeuille.model.Owner;
 import com.portefeuille.resources.Owners;
 
-@Path("owners")
+//@Path("owners")
 public class OwnersImpl implements Owners {
 	
 	private Map<Integer, Owner> ownerDb = Collections.synchronizedMap(new HashMap<Integer,Owner>());
@@ -24,8 +20,8 @@ public class OwnersImpl implements Owners {
 		System.out.println("Instance of " + OwnersImpl.class.getSimpleName() + " created");
 	}
 	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)	
+	//@POST
+	//@Consumes(MediaType.APPLICATION_JSON)	
 	public Response createOwner(String jsonRequestBody){  // all non annotated parms are considered a representation of the message body. Only one param can be non annotated 
 		Owner newOwner = new Owner();
 		newOwner.setName("Bogdan");
