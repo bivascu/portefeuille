@@ -7,8 +7,8 @@ import java.util.Map;
 
 import javax.ws.rs.core.Response;
 
+import com.portefeuille.endpoints.Owners;
 import com.portefeuille.model.Owner;
-import com.portefeuille.resources.Owners;
 
 //@Path("owners")
 public class OwnersImpl implements Owners {

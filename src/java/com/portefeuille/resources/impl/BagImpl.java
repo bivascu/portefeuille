@@ -1,6 +1,6 @@
 package com.portefeuille.resources.impl;
 
-import com.portefeuille.resources.Bag;
+import com.portefeuille.endpoints.Bag;
 
 
 

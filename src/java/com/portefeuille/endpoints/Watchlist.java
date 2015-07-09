@@ -1,4 +1,4 @@
-package com.portefeuille.resources;
+package com.portefeuille.endpoints;
 
 public interface Watchlist {
 	

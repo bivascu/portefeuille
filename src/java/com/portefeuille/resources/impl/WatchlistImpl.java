@@ -1,6 +1,6 @@
 package com.portefeuille.resources.impl;
 
-import com.portefeuille.resources.Watchlist;
+import com.portefeuille.endpoints.Watchlist;
 
 public class WatchlistImpl implements Watchlist{
 	

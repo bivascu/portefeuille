@@ -1,4 +1,4 @@
-package com.portefeuille.resources;
+package com.portefeuille.endpoints;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
