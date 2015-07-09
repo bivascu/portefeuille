@@ -1,10 +1,10 @@
 package com.portefeuille.endpoints.impl;
 
-import com.portefeuille.endpoints.Bag;
+import com.portefeuille.endpoints.Holdings;
 
 
 
-public class BagImpl implements Bag{
+public class HoldingsImpl implements Holdings{
 
 //	public String listHoldings(@PathParam("ticker") String ticker){
 //		HtmlClient client = new HtmlClientImpl(); 

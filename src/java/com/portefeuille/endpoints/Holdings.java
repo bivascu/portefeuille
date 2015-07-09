@@ -3,7 +3,7 @@ package com.portefeuille.endpoints;
 
 
 //@Path("bag/")
-public interface Bag {
+public interface Holdings {
 
 //	@GET
 //	@Produces(MediaType.TEXT_PLAIN) // don't like query params except for complex filter. User Pathparam.
