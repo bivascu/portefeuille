@@ -1,4 +1,4 @@
-package com.portefeuille.resources.impl;
+package com.portefeuille.endpoints.impl;
 
 import com.portefeuille.endpoints.Watchlist;
 

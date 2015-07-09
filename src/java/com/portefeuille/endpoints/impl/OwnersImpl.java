@@ -1,4 +1,4 @@
-package com.portefeuille.resources.impl;
+package com.portefeuille.endpoints.impl;
 
 import java.net.URI;
 import java.util.Collections;

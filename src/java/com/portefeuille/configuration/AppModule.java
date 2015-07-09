@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import com.portefeuille.resources.impl.OwnersImpl;
+import com.portefeuille.endpoints.impl.OwnersImpl;
 
 @ApplicationPath("/rest")
 public class AppModule extends Application {
