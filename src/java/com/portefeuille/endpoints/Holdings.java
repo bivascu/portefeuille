@@ -1,17 +1,23 @@
 package com.portefeuille.endpoints;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 
-//@Path("bag/")
+
+@Path("holdings/")
 public interface Holdings {
 
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN) // don't like query params except for complex filter. User Pathparam.
-//	@Path("{ticker}")
-//	public String listHoldings(@PathParam("ticker") String ticker);
-//	
-//	
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN) // don't like query params except for complex filter. User Pathparam. 
-//	public String listHoldings();
+	@GET
+	@Produces(MediaType.TEXT_PLAIN) 
+	@Path("{username}")
+	public String listHoldings(@PathParam("username") String ticker);
+	
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN) 
+	public String listHoldings();
 }
