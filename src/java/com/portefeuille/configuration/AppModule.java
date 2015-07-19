@@ -14,7 +14,7 @@ public class AppModule extends Application {
 	private Set<Object> singletons = new HashSet<Object>();
 	private Set<Class<?>> empty = new HashSet<Class<?>>();
 	
-	public AppModule(){
+	public AppModule(){		
 		System.out.println("Initializing the Main Module");
 	}
 	
@@ -28,4 +28,9 @@ public class AppModule extends Application {
 	public Set<Object> getSingletons(){
 		return singletons;
 	}
+	
+	/*
+	 * This Spring integration is portable but clunky. Better to use the integration capability of the chosen Jax-RS implementation. * 
+	 * 
+	 */
 }
